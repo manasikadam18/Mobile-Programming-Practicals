@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart'; 
+ 
+void main(){ 
+  runApp(const MyApp()); 
+} 
+class MyApp extends StatelessWidget 
+{ 
+  const MyApp({super.key}); 
+  @override 
+  Widget build(BuildContext context){ 
+    return MaterialApp( 
+      home: CounterPage(), 
+    ); 
+  } 
+} 
+class CounterPage extends StatefulWidget{ 
+  @override 
+  _CounterPageState createState() => _CounterPageState(); 
+} 
+class _CounterPageState extends State<CounterPage>{ 
+  int count=0; 
+  void increment() 
+  { 
+    setState(() { 
+      count++; 
+    }); 
+  } 
+  @override 
+  Widget build(BuildContext context){ 
+    return Scaffold( 
+      appBar: AppBar(title: Text("Counter App"),), 
+      body: Center( 
+        child: Text("You have clicked the button- $count times", 
+          style: TextStyle(fontSize: 36), 
+        ), 
+      ), 
+      floatingActionButton: FloatingActionButton( 
+          onPressed: increment, 
+        child: Icon(Icons.add), 
+      ), 
+    ); 
+  } 
+} 
